@@ -42,5 +42,5 @@ def predict():
     else:
         return jsonify({'error': 'File must be in CSV format'})
 
-if __name__ != "__main__":
-    from app import app
+if __name__ == "__main__":
+    app.run(debug=True)
