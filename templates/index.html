@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV File Upload</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Upload CSV File for Prediction</h2>
+        <form action="/predict" method="post" enctype="multipart/form-data">
+            <div class="file-container">
+                <input type="file" name="file" id="file" class="file-input" accept=".csv">
+                <label for="file" class="file-label" id="file-label">Choose File</label>
+                <span class="file-name">(No file selected)</span>
+            </div>
+            <button type="submit" class="file-label" id="upload-btn" style="margin: 0;">Upload</button>
+        </form>
+
+        {% if predictions %}
+        <div id="result">
+            <h3>Predictions:</h3>
+            <ul>
+                {% for prediction in predictions %}
+                    <li>{{ prediction }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+
+    
+</body>
+</html>
